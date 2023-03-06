@@ -18,12 +18,12 @@ class Program
             var yeResponse = client.GetStringAsync(ye).Result;
 
             var ronQuote = JArray.Parse(ronResponse).ToString().Replace('[', ' ').Replace(']', ' ').Trim();
-            var yeQuote = JObject.Parse(yeResponse).ToString().Replace('{', ' ').Replace('}', ' ').Trim();
+            var yeQuote = JObject.Parse(yeResponse);
 
             Console.WriteLine($"Ron Swanson: {ronQuote}");
             Console.WriteLine();
 
-            Console.WriteLine($"Kenye West: {yeQuote}");
+            Console.WriteLine($"Kenye West: {yeQuote["quote"]}");
             Console.WriteLine();
         }
     }
